@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq3drq5eqame5"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ijawq"]
+
+[node name="Barrier" type="Node3D" groups=["OncomingBarrier"]]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.000785394, -1, 0, 1, -0.000785394, 0, 0, 0, 1, 0, 0, -0.101826)
+shape = SubResource("WorldBoundaryShape3D_ijawq")

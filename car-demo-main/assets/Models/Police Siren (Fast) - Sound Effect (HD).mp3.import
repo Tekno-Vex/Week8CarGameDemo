@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://605rpehsob6s"
+path="res://.godot/imported/Police Siren (Fast) - Sound Effect (HD).mp3-aefa10faa51712399f5d8e457d4d65dc.mp3str"
+
+[deps]
+
+source_file="res://assets/Models/Police Siren (Fast) - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Police Siren (Fast) - Sound Effect (HD).mp3-aefa10faa51712399f5d8e457d4d65dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

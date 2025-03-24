@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx5a88vwpb4aq"]
+
+[ext_resource type="PackedScene" uid="uid://c441flqlh5vq" path="res://Scenes/roadimport.tscn" id="1_7e5qp"]
+[ext_resource type="PackedScene" uid="uid://c2kqwsup24kcx" path="res://Scenes/car.tscn" id="5_1ppq0"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RoadManager" parent="." instance=ExtResource("1_7e5qp")]
+
+[node name="car" parent="." instance=ExtResource("5_1ppq0")]
+transform = Transform3D(-0.961194, 0, 0.275872, 0, 1, 0, -0.275872, 0, -0.961194, 1.58211, -64.8157, 2.54346)

@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8l6w5nmtdj35"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_r2a7d"]
+[ext_resource type="FontFile" uid="uid://cxi2psa1opte" path="res://assets/Font/ARCADE_N.TTF" id="1_r8ke2"]
+[ext_resource type="Texture2D" uid="uid://dk3pk4oyt52t" path="res://assets/Models/Street_Smarts_Title_Screen (1).jpg" id="1_uy4ky"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbiit"]
+texture = ExtResource("1_uy4ky")
+modulate_color = Color(0.854634, 0.854634, 0.854634, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7near"]
+bg_color = Color(0, 0, 0, 0.152941)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r2a7d")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nbiit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -350.0
+offset_right = 173.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_r8ke2")
+theme_override_font_sizes/font_size = 39
+theme_override_styles/hover = SubResource("StyleBoxFlat_7near")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7near")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7near")
+text = "Start
+"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_r8ke2")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/hover = SubResource("StyleBoxFlat_7near")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7near")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7near")
+text = "Instructions
+"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_instructions_pressed"]

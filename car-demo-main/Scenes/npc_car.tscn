@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://mj1vyx3xnbwa"]
+
+[ext_resource type="Script" path="res://Scenes/npc_car.gd" id="1_76a2a"]
+[ext_resource type="PackedScene" uid="uid://benmjny2guowm" path="res://assets/Models/Car/Wheel.glb" id="2_duh30"]
+[ext_resource type="PackedScene" uid="uid://4y2ttyf5fj5s" path="res://assets/Models/Car/car_colored.fbx" id="4_jn0oq"]
+[ext_resource type="AudioStream" uid="uid://605rpehsob6s" path="res://assets/Models/Police Siren (Fast) - Sound Effect (HD).mp3" id="5_2hkkm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aniw4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mm2gk"]
+size = Vector3(1.9717, 0.963745, 1.35949)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd7ma"]
+size = Vector3(1.59964, 0.993591, 4.61182)
+
+[node name="car" type="VehicleBody3D" groups=["Car"]]
+transform = Transform3D(-0.961194, 0, 0.275872, 0, 1, 0, -0.275872, 0, -0.961194, 5.58211, 0.184314, 4.54346)
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.1, 0)
+script = ExtResource("1_76a2a")
+
+[node name="wheel_front_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.812, 0.331356, 1.484)
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+wheel_friction_slip = 3.0
+suspension_travel = 0.357
+suspension_stiffness = 30.0
+suspension_max_force = 10000.0
+
+[node name="Wheel" parent="wheel_front_left" instance=ExtResource("2_duh30")]
+
+[node name="wheel_front_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842, 0.331356, 1.484)
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+wheel_friction_slip = 3.0
+suspension_travel = 0.357
+suspension_stiffness = 30.0
+suspension_max_force = 10000.0
+
+[node name="Wheel" parent="wheel_front_right" instance=ExtResource("2_duh30")]
+
+[node name="wheel_rear_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.812, 0.33315, -1.26208)
+use_as_traction = true
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+wheel_friction_slip = 2.9
+suspension_travel = 0.357
+suspension_stiffness = 30.0
+suspension_max_force = 10000.0
+
+[node name="Wheel" parent="wheel_rear_left" instance=ExtResource("2_duh30")]
+
+[node name="wheel_rear_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842, 0.33315, -1.26208)
+use_as_traction = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+wheel_friction_slip = 2.9
+suspension_travel = 0.357
+suspension_stiffness = 30.0
+suspension_max_force = 10000.0
+
+[node name="Wheel" parent="wheel_rear_right" instance=ExtResource("2_duh30")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00610757, 0, -1.58907, 0, 1, 0, 4.72824, 0, 0.00205287, 0, 0.706462, 0)
+mesh = SubResource("BoxMesh_aniw4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -0.00209904, 0.809271, -0.321129)
+shape = SubResource("BoxShape3D_mm2gk")
+
+[node name="car_colored" parent="." instance=ExtResource("4_jn0oq")]
+transform = Transform3D(0.8, 0, 4.47035e-08, 0, 0.8, 0, -4.47035e-08, 0, 0.8, 0.0310841, 0, 0.530816)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, -0.00908566, 0.705231, -0.0661592)
+shape = SubResource("BoxShape3D_nd7ma")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="FeedbackLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -21.0
+offset_right = 0.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.928641, 2.79158e-06, 5.77569e-07, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="SirenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2hkkm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

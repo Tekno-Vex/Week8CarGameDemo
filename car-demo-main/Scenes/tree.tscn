@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1e0v36w1uxu5"]
+
+[ext_resource type="PackedScene" uid="uid://3lopjcr5el2c" path="res://assets/Models/JosiahTree.fbx" id="1_lbohi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e65x5"]
+radius = 0.695368
+height = 6.2661
+
+[node name="Tree" type="Node3D" groups=["Trees"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="tree" parent="." groups=["Trees"] instance=ExtResource("1_lbohi")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Trees"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" groups=["Trees"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.624418, 3.20226, 0.0626705)
+shape = SubResource("CapsuleShape3D_e65x5")

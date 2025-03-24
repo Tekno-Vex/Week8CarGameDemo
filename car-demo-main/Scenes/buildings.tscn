@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7ot1ux4iiokk"]
+
+[ext_resource type="PackedScene" uid="uid://eucb2v74axsa" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_A.fbx" id="1_3qmef"]
+[ext_resource type="PackedScene" uid="uid://cymplkgiar8kq" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_B.fbx" id="2_ny7ft"]
+[ext_resource type="PackedScene" uid="uid://537apmsm1jad" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_C.fbx" id="3_5didk"]
+[ext_resource type="PackedScene" uid="uid://b6n1n7qe2kxxj" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_D.fbx" id="4_lrsj1"]
+[ext_resource type="PackedScene" uid="uid://b26aovfem684m" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_E.fbx" id="5_44v1v"]
+[ext_resource type="PackedScene" uid="uid://ccurl3w4drjoe" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_F.fbx" id="6_8wfk1"]
+[ext_resource type="PackedScene" uid="uid://dg3qftjlmpph5" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_G.fbx" id="7_adix5"]
+[ext_resource type="PackedScene" uid="uid://bwhfmxgtb3hth" path="res://assets/KayKit_City_Builder_Bits_1.0_FREE/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_H.fbx" id="8_tfuam"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_huiyv"]
+size = Vector3(16.127, 3.48132, 1.84241)
+
+[node name="Buildings" type="Node3D" groups=["Buildings"]]
+
+[node name="building_A" parent="." groups=["Buildings"] instance=ExtResource("1_3qmef")]
+transform = Transform3D(-15, 0, -2.26494e-06, 0, 15, 0, 2.26494e-06, 0, -15, 0, -1, 1.72262)
+
+[node name="building_B" parent="." groups=["Buildings"] instance=ExtResource("2_ny7ft")]
+transform = Transform3D(-15, 0, 1.31134e-06, 0, 15, 0, -1.31134e-06, 0, -15, -30.0652, -1, 1.62934)
+
+[node name="building_C" parent="." groups=["Buildings"] instance=ExtResource("3_5didk")]
+transform = Transform3D(-15, 0, -1.31134e-06, 0, 15, 0, 1.31134e-06, 0, -15, -60.2192, -1, 1.61057)
+
+[node name="building_D" parent="." groups=["Buildings"] instance=ExtResource("4_lrsj1")]
+transform = Transform3D(-15, 0, -1.31134e-06, 0, 15, 0, 1.31134e-06, 0, -15, -90.3428, -0.960425, 1.42736)
+
+[node name="building_E" parent="." groups=["Buildings"] instance=ExtResource("5_44v1v")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -120.481, -0.789368, 1.21722)
+
+[node name="building_F" parent="." groups=["Buildings"] instance=ExtResource("6_8wfk1")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -150.958, -0.714676, 1.43979)
+
+[node name="building_G" parent="." groups=["Buildings"] instance=ExtResource("7_adix5")]
+transform = Transform3D(-15, 0, -2.26494e-06, 0, 15, 0, 2.26494e-06, 0, -15, -181.387, -0.514948, 1.46653)
+
+[node name="building_H" parent="." groups=["Buildings"] instance=ExtResource("8_tfuam")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -211.794, -0.439831, 1.47025)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Buildings"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" groups=["Buildings"]]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -106.086, 18.6099, 2.22376)
+shape = SubResource("BoxShape3D_huiyv")
